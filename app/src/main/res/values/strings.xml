@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Master Password</string>
+
+    <string name="hello_world">Passwort Master</string>
+    <string name="action_settings">Settings</string>
+    <string name="spinner">Dienst / URL</string>
+    <string name="pActExit">Beenden</string>
+    <string name="actCopy">Copy to clipboard</string>
+</resources>

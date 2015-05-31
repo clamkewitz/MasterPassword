@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name = "dienst">
+    <item>Facebook</item>
+    <item>Ebay</item>
+    <item>Google</item>
+    </array>
+    <array name = "diensturl">
+        <item>http://www.Facebook.de</item>
+        <item>http://www.Ebay.de</item>
+        <item>http://www.Google.de</item>
+    </array>
+
+</resources>
