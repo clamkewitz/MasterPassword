@@ -42,7 +42,7 @@
         android:drawSelectorOnTop = "true"
         android:entries = "@array/dienst"
         android:entryValues = "@array/diensturl"
-        android:text="@string/spinner"
+        android:text="Dienst / URL"
         android:layout_weight="0.11" />
 
     <EditText
@@ -51,14 +51,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/kennung"
         android:hint="MeineKennung"
-        android:layout_weight="0.04" />
+        android:layout_weight="0.04"
+        />
 
     <EditText
         android:label="Version"
         android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:id="@+id/version"
-        android:hint="Versionsnummer"/>
+        android:hint="Versionsnummer"
+        />
 
     <TextView
         android:layout_width="match_parent"

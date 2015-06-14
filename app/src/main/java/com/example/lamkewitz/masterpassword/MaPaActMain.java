@@ -26,13 +26,17 @@ public class MaPaActMain extends ActionBarActivity {
 
     String hashed;
     TextView passwort;
-    EditText masterpasswort;
-    EditText masterpasswort2;
-    EditText version;
+    EditText masterpasswort =null;
+    String mapa1 =null;
+    String mapa2=null;
+    String kenn=null;
+    String vers=null;
+    EditText masterpasswort2 = null;
+    EditText version = null;
     Spinner dienst;
-    EditText kennung;
-    String zeichenkette;
-    String salt;
+    EditText kennung = null;
+    String zeichenkette = null;
+    String salt = null;
     int iteration = 1000;
 
     @Override
@@ -59,7 +63,20 @@ public class MaPaActMain extends ActionBarActivity {
         masterpasswort = (EditText) findViewById(R.id.mapa1);
         masterpasswort2 = (EditText) findViewById(R.id.mapa2);
 
-        if(masterpasswort!=null & kennung != null & version!= null & masterpasswort2!=null) {
+        mapa1=masterpasswort.getText().toString();
+        mapa2=masterpasswort2.getText().toString();
+        kenn=kennung.getText().toString();
+        vers=version.getText().toString();
+
+
+    if (kenn.equals(null) || kenn.equals("") || mapa1.equals(null) || mapa1.equals("") || mapa2.equals(null) || mapa2.equals("") ||vers.equals(null) || vers.equals("")) {
+
+
+        Toast.makeText(this, "FEHLER: Bitte alle Felder ausfüllen!", Toast.LENGTH_LONG).show();
+    } else {
+
+        if(mapa1.equals(mapa2)) {
+
             zeichenkette = masterpasswort.getText().toString() + version.getText().toString()
                     + dienst.getSelectedItem() + kennung.getText().toString();
 
@@ -68,12 +85,15 @@ public class MaPaActMain extends ActionBarActivity {
             hashing(zeichenkette, salt);
         }
         else{
-            Toast.makeText(this, "FEHLER: Bitte alle Felder ausfüllen!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "FEHLER: Überprüfen sie Ihre Eingaben!!", Toast.LENGTH_LONG).show();
         }
+        }
+
     }
 
     public void salting() {
 
+    /*Bildet einen zufälligen SALT
     char[] chars =
             "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/()=?".toCharArray();
     StringBuilder sb = new StringBuilder();
@@ -84,6 +104,11 @@ public class MaPaActMain extends ActionBarActivity {
                 sb.append(c);
             }
         salt=sb.toString();
+    */
+
+
+    //Salt festlegen
+        salt = masterpasswort2.getText().toString() + "sadfahjFDAFaGH" + version.getText().toString() +"123456"+"§%$%&§"+kennung.getText().toString();
         Toast.makeText(this, "Salt wurde erstellt: "+salt, Toast.LENGTH_LONG).show();
 }
 
@@ -92,12 +117,15 @@ String hashing (String zeichenkette, String Salt){
 String generatedhash=null;
 
     try {
-
+    //ruft die Methode für die Erstellung eines Salt auf.
     salting();
+
     //Zeichenkette zum Char umwandeln für den PBKDF2-Algorithmus
     char[] charpass = zeichenkette.toCharArray();
+
     // Bytes vom Salt erhalten
     byte[] saltBytes = salt.getBytes();
+
     // Schluessellaenge in Bits festlegen
     int bitlaenge = 256;
 
