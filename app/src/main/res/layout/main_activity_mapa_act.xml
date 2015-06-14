@@ -58,18 +58,7 @@
         android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:id="@+id/version"
-        android:phoneNumber="true"
-        android:inputType="numberDecimal"
-        android:hint="Versionsnummer" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="Gruppieren"
-        android:id="@+id/checkBox"
-        android:layout_weight="0.19"
-        android:checked="true"
-        />
+        android:hint="Versionsnummer"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -82,6 +71,7 @@
         android:layout_height="wrap_content"
         android:text="Go"
         android:id="@+id/btngo"
-        android:layout_weight="0.12" />
+        android:layout_weight="0.12"
+        android:onClick="onClickgenerate"/>
 
 </LinearLayout>
